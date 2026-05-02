@@ -26,13 +26,14 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "File too large for analysis" }, { status: 413 });
     }
 
-    // 3. Updated System Prompt
+    // 3. Updated System Prompt for Gemini 3
     const payload = {
+      thinking_level: "medium", // Reasoning mode as requested
       contents: [
         {
           parts: [
             {
-              text: "Analyze this image. It is either a prescription or a medication box. Extract: Drug Name, Dosage, and Safety Warning. If you cannot find medical data, return: {'error': 'No medicine detected'}. Do not hallucinate. Format response as JSON using these keys: 'medication_name', 'usage_instructions', 'safety_flag'.",
+              text: "You are a Clinical Pharmacist in Ibadan. Analyze this image. If it is a prescription, extract JSON: {medicationName, dosage, safetyWarning}. Focus on accuracy for handwritten text. If the drug is high-risk (like antibiotics or narcotics), the safetyWarning MUST include a local consultation advice. If you cannot find medical data, return: {'error': 'No medicine detected'}. Do not hallucinate.",
             },
             {
               inlineData: {
@@ -43,6 +44,9 @@ export async function POST(req: NextRequest) {
           ],
         },
       ],
+      generationConfig: {
+        responseMimeType: "application/json"
+      }
     };
 
     const callGemini = async (modelName: string) => {
@@ -70,13 +74,13 @@ export async function POST(req: NextRequest) {
 
     let response;
     try {
-      // Primary Call to Pro Model
-      response = await callGemini("gemini-1.5-pro-latest");
+      // Primary Call to upgraded Pro Model
+      response = await callGemini("gemini-3.1-pro-preview");
       
       // 4. Model Fallback to Flash Model on 503 or 429
-      if (!response.ok && (response.status === 429 || response.status === 503)) {
+      if (!response.ok && (response.status === 429 || response.status === 503 || response.status === 404)) {
         console.warn(`[Fallback] Gemini Pro returned ${response.status}. Trying Gemini Flash...`);
-        response = await callGemini("gemini-1.5-flash-latest");
+        response = await callGemini("gemini-1.5-flash-latest"); // Fallback to stable version just in case
       }
     } catch (err: any) {
       if (err.name === 'AbortError') {
@@ -120,10 +124,15 @@ export async function POST(req: NextRequest) {
       });
     }
     
-    // Determine is_valid based on medication_name
-    result.is_valid = result.medication_name && result.medication_name !== 'Unknown';
+    // Map the new requested schema to the existing frontend UI schema safely
+    const mappedResult = {
+      medication_name: result.medicationName || result.medication_name || 'Unknown',
+      usage_instructions: result.dosage || result.usage_instructions || 'No dosage found',
+      safety_flag: result.safetyWarning || result.safety_flag || '',
+      is_valid: !!(result.medicationName || result.medication_name) && (result.medicationName !== 'Unknown') && (result.medication_name !== 'Unknown')
+    };
 
-    return NextResponse.json(result);
+    return NextResponse.json(mappedResult);
   } catch (error) {
     console.error("Unhandled Error in /api/analyze:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
