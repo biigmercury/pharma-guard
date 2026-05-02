@@ -28,7 +28,6 @@ export async function POST(req: NextRequest) {
 
     // 3. Updated System Prompt for Gemini 3
     const payload = {
-      thinking_level: "medium", // Reasoning mode as requested
       contents: [
         {
           parts: [
