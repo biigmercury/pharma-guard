@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbcf",
+                    "primary-fixed": "#dae2ff",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "on-primary-fixed": "#001848",
+                    "outline-variant": "#c3c6d6",
+                    "surface-tint": "#0c56d0",
+                    "on-surface-variant": "#434654",
+                    "on-surface": "#191c1e",
+                    "surface-dim": "#d8dadc",
+                    "secondary-fixed": "#68fcbf",
+                    "surface-container-low": "#f2f4f6",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#002114",
+                    "tertiary-container": "#a33500",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#00714e",
+                    "on-tertiary-fixed": "#380d00",
+                    "surface-bright": "#f7f9fb",
+                    "tertiary": "#7b2600",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#45dfa4",
+                    "inverse-primary": "#b2c5ff",
+                    "surface-container-highest": "#e0e3e5",
+                    "background": "#f7f9fb",
+                    "inverse-surface": "#2d3133",
+                    "error": "#ba1a1a",
+                    "primary": "#003d9b",
+                    "on-background": "#191c1e",
+                    "secondary-container": "#64f9bc",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005137",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "on-primary-container": "#c4d2ff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "outline": "#737685",
+                    "inverse-on-surface": "#eff1f3",
+                    "primary-container": "#0052cc",
+                    "surface-container": "#eceef0",
+                    "secondary": "#006c4b",
+                    "surface-container-high": "#e6e8ea",
+                    "on-tertiary-container": "#ffc6b2",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "surface-variant": "#e0e3e5",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "container-max": "1280px",
+                    "unit": "4px",
+                    "gutter": "20px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-icon {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased pb-32">
+<!-- TopAppBar -->
+<header class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm shadow-blue-900/5 fixed top-0 w-full z-50">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto font-manrope antialiased tracking-tight">
+<div class="text-xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tighter">PharmaGuard Ibadan</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all px-3 py-1 rounded-lg" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all px-3 py-1 rounded-lg" href="#">Upload</a>
+<a class="text-blue-700 dark:text-blue-400 font-bold px-3 py-1 rounded-lg" href="#">Analysis</a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all px-3 py-1 rounded-lg" href="#">Profile</a>
+</nav>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md active:scale-95 duration-200">Emergency Help</button>
+</div>
+</header>
+<main class="max-w-7xl mx-auto pt-24 px-6">
+<!-- Header Section -->
+<div class="mb-xl">
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-xs">Prescription Analysis</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">AI-verified clinical results for your uploaded documentation.</p>
+
+<div class="mt-lg flex items-center gap-md">
+    <input type="file" id="prescriptionUpload" accept="image/*" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-fixed file:text-on-primary-fixed hover:file:bg-primary-fixed-dim" />
+    <button id="scanButton" class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md active:scale-95 duration-200 whitespace-nowrap">Scan Prescription</button>
+</div>
+<div id="aiThinking" class="hidden mt-4 text-primary font-bold animate-pulse flex items-center gap-2">
+    <span class="material-symbols-outlined animate-spin" data-icon="sync">sync</span> AI is analyzing...
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-xl">
+<!-- Left Column: Digital Prescription Reconstruction -->
+<section class="space-y-lg">
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-lg shadow-sm">
+<div class="flex justify-between items-start mb-lg">
+<div class="flex items-center gap-md">
+<div class="glass-icon w-12 h-12 rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md">Digital Record</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Extracted from: Scan_2024_0812.jpg</p>
+</div>
+</div>
+<div id="validationBadge" class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full flex items-center gap-xs hidden">
+<span class="material-symbols-outlined text-[18px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span id="validationText" class="font-label-md text-label-md uppercase tracking-wider">Pending</span>
+</div>
+</div>
+<div class="space-y-md">
+<div class="p-md bg-surface-container-low rounded-lg border border-slate-200">
+<p class="font-label-sm text-on-surface-variant mb-xs">Medication Name</p>
+<p id="medicationName" class="font-headline-md text-on-surface">---</p>
+</div>
+<div class="p-md bg-surface-container-low rounded-lg border border-slate-200">
+<p class="font-label-sm text-on-surface-variant mb-xs">Usage Instructions</p>
+<p id="usageInstructions" class="font-body-lg font-bold text-on-surface">---</p>
+</div>
+</div>
+<div class="mt-lg pt-lg border-t border-outline-variant">
+<img id="uploadedImage" class="w-full h-48 object-cover rounded-lg grayscale opacity-50 contrast-125" data-alt="A clinical close-up of a pharmaceutical prescription document lying on a clean white laboratory surface. The image uses a high-key lighting setup to emphasize a sterile, medical atmosphere. Subtle blue light accents reflect off the paper, highlighting its professional nature. The composition is minimalist and organized, reflecting a modern, tech-driven healthcare environment with pharmaceutical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjc4IMWIEzn2QMpqMkBznvkUn5Gz0SYiV3aMziBlqaQ61LDmDsgukl2FyH-HBj57OTlINTAGFyhgRyTNhkMD3wg7_25JGS8gizhz9EKf3WUaOa92CUuIn71sjjexWFgk7JHzt4_GkvjW51f3D4YlUXWq7vzkE1PlOaJStgA386_jkDyLV1DJgOVCrTA4T-2OxaunsBdfR5IABaQPXRlroVoZ8QbPYv4mmXH4FrQnSjodrDDsvLEHRfowwV5YEHk7K50LdbkTEv6oy5"/>
+</div>
+</div>
+</section>
+<!-- Right Column: AI Safety Insights -->
+<section class="space-y-lg">
+<div class="bg-white rounded-xl border-2 border-tertiary-container/30 p-lg shadow-md relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-tertiary text-4xl opacity-20" data-icon="neurology">neurology</span>
+</div>
+<div class="flex items-center gap-md mb-lg">
+<div class="glass-icon w-12 h-12 rounded-xl flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="security_update_warning">security_update_warning</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">AI Safety Insights</h2>
+</div>
+<div class="bg-tertiary-fixed text-on-tertiary-fixed p-md rounded-lg mb-lg border border-tertiary-container/50">
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-tertiary" data-icon="warning">warning</span>
+<div>
+<p class="font-label-md mb-xs">Safety Warning</p>
+<p id="safetyFlag" class="font-body-md font-bold text-red-600">No warnings yet.</p>
+</div>
+</div>
+</div>
+<div class="space-y-md">
+<h3 class="font-label-md text-on-surface-variant uppercase tracking-widest">Recommended Precautions</h3>
+<div class="flex items-start gap-md p-md hover:bg-slate-50 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="restaurant">restaurant</span>
+<p class="font-body-md text-on-surface">Take with food to minimize potential gastrointestinal discomfort common with this antibiotic class.</p>
+</div>
+<div class="flex items-start gap-md p-md hover:bg-slate-50 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="water_drop">water_drop</span>
+<p class="font-body-md text-on-surface">Maintain high hydration levels throughout the 7-day course to support renal processing.</p>
+</div>
+</div>
+<div class="mt-lg p-lg bg-primary-fixed text-on-primary-fixed rounded-xl border border-primary-container/20">
+<div class="flex items-center gap-sm mb-sm">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<p class="font-label-md">PharmaGuard Smart Advice</p>
+</div>
+<p class="font-body-md italic opacity-90">"Completion of the full course is critical to prevent antibiotic resistance, even if symptoms improve within 48 hours."</p>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-lg border border-outline-variant">
+<h3 class="font-label-md text-on-surface-variant uppercase tracking-widest mb-md">Local Availability (Ibadan Central)</h3>
+<div class="space-y-sm">
+<div class="flex justify-between items-center p-sm bg-white rounded border border-slate-100">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="location_on">location_on</span>
+<span class="font-label-md">HealthPlus Pharmacy, Ring Road</span>
+</div>
+<span class="text-secondary font-bold text-label-sm">In Stock</span>
+</div>
+<div class="flex justify-between items-center p-sm bg-white rounded border border-slate-100">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="location_on">location_on</span>
+<span class="font-label-md">Nett Pharmacy, Jericho</span>
+</div>
+<span class="text-secondary font-bold text-label-sm">In Stock</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Disclaimer -->
+<div class="max-w-7xl mx-auto px-6 pb-6 text-center text-red-600 font-bold text-sm">
+    AI-generated insight. Consult a licensed pharmacist before use.
+</div>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 p-12 mt-xl">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 w-full max-w-7xl mx-auto font-manrope text-sm text-slate-500">
+<div class="text-blue-700 font-bold">PharmaGuard Ibadan</div>
+<div class="flex gap-8">
+<a class="text-slate-500 hover:text-blue-600 transition-colors" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-blue-600 transition-colors" href="#">Pharmacist Terms</a>
+<a class="text-slate-500 hover:text-blue-600 transition-colors" href="#">Help Center</a>
+</div>
+<div>© 2024 PharmaGuard Ibadan. AI-Verified Clinical Care.</div>
+</div>
+</footer>
+<!-- Sticky Checkout Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-lg border-t border-slate-200 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-50 p-lg">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-md">
+<div class="flex items-center gap-lg">
+<div class="hidden md:block">
+<p class="font-label-sm text-on-surface-variant">Patient Name</p>
+<p class="font-label-md text-on-surface">Oladapo Ibrahim</p>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant hidden md:block"></div>
+<div>
+<p class="font-label-sm text-on-surface-variant">Estimated Cost</p>
+<p class="font-headline-md text-primary">₦4,250.00</p>
+</div>
+</div>
+<button class="w-full md:w-auto bg-primary text-on-primary font-label-md text-lg px-xl py-md rounded-lg shadow-lg hover:bg-primary-container transition-all active:scale-95 flex items-center justify-center gap-md">
+                Confirm &amp; Find Local Pharmacy
+                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-[60] bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-t border-slate-100 dark:border-slate-800 flex justify-around items-center px-4 pb-6 pt-3 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-blue-600" href="#">
+<span class="material-symbols-outlined" data-icon="home_health">home_health</span>
+<span class="font-manrope text-[11px] font-semibold uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-blue-600" href="#">
+<span class="material-symbols-outlined" data-icon="ios_share">ios_share</span>
+<span class="font-manrope text-[11px] font-semibold uppercase tracking-wider">Upload</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 rounded-xl px-4 py-1.5" href="#">
+<span class="material-symbols-outlined" data-icon="neurology">neurology</span>
+<span class="font-manrope text-[11px] font-semibold uppercase tracking-wider">Analysis</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-blue-600" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-manrope text-[11px] font-semibold uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+<script>
+    const API_KEY = ''; // Add your Vertex AI/Gemini API Key here
+    
+    document.getElementById('prescriptionUpload').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.getElementById('uploadedImage');
+                img.src = e.target.result;
+                img.classList.remove('grayscale', 'opacity-50');
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+
+    document.getElementById('scanButton').addEventListener('click', async function() {
+        const fileInput = document.getElementById('prescriptionUpload');
+        const file = fileInput.files[0];
+        
+        const aiThinking = document.getElementById('aiThinking');
+        const medicationName = document.getElementById('medicationName');
+        const usageInstructions = document.getElementById('usageInstructions');
+        const safetyFlag = document.getElementById('safetyFlag');
+        const validationBadge = document.getElementById('validationBadge');
+        const validationText = document.getElementById('validationText');
+
+        aiThinking.classList.remove('hidden');
+        
+        if (!API_KEY) {
+            // Demo mode
+            setTimeout(() => {
+                aiThinking.classList.add('hidden');
+                
+                medicationName.textContent = 'Amoxicillin 500mg';
+                usageInstructions.textContent = 'Take 1 tablet every 8 hours with food for 7 days.';
+                safetyFlag.textContent = 'May cause stomach upset. Complete full course even if feeling better.';
+                
+                validationBadge.classList.remove('hidden', 'bg-error-container', 'text-on-error-container');
+                validationBadge.classList.add('bg-secondary-container', 'text-on-secondary-container');
+                validationText.textContent = 'Verified';
+            }, 2000);
+            return;
+        }
+
+        // Real API Call via Gemini Pro
+        if (!file) {
+            alert('Please upload an image first.');
+            aiThinking.classList.add('hidden');
+            return;
+        }
+
+        try {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = async () => {
+                const base64Image = reader.result.split(',')[1];
+                
+                const payload = {
+                    contents: [{
+                        parts: [
+                            {text: "You are a Clinical Pharmacist. Analyze the text in this prescription image. Return a JSON object with: 'medication_name': The detected drug. 'usage_instructions': How the patient should take it. 'safety_flag': A 1-sentence critical warning (e.g., allergies, food interactions). 'is_valid': true/false based on whether this looks like a real prescription. Return ONLY the JSON."},
+                            {
+                                inlineData: {
+                                    mimeType: file.type,
+                                    data: base64Image
+                                }
+                            }
+                        ]
+                    }]
+                };
+
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=${API_KEY}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                const data = await response.json();
+                aiThinking.classList.add('hidden');
+                
+                if (data.candidates && data.candidates[0].content.parts[0].text) {
+                    let jsonStr = data.candidates[0].content.parts[0].text;
+                    jsonStr = jsonStr.replace(/```json/g, '').replace(/```/g, '').trim();
+                    const result = JSON.parse(jsonStr);
+                    
+                    medicationName.textContent = result.medication_name || 'Unknown';
+                    usageInstructions.textContent = result.usage_instructions || 'No instructions found';
+                    safetyFlag.textContent = result.safety_flag || 'No warnings';
+                    
+                    validationBadge.classList.remove('hidden');
+                    if (result.is_valid) {
+                        validationBadge.classList.remove('bg-error-container', 'text-on-error-container');
+                        validationBadge.classList.add('bg-secondary-container', 'text-on-secondary-container');
+                        validationText.textContent = 'Verified';
+                    } else {
+                        validationBadge.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+                        validationBadge.classList.add('bg-error-container', 'text-on-error-container');
+                        validationText.textContent = 'Unverified';
+                    }
+                }
+            };
+        } catch (error) {
+            console.error('Error analyzing prescription:', error);
+            aiThinking.classList.add('hidden');
+            alert('Failed to analyze the prescription. See console for details.');
+        }
+    });
+</script>
+</body></html>
